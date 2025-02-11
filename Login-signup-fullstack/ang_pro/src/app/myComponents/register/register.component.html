@@ -1,0 +1,88 @@
+
+<div class="container-fluid pt-5 text-center d-flex" style="justify-content: center; align-items: center;">
+  <!-- <div class="col-md-2"></div> -->
+  <div class="main col-md-5 text-white p-5 rounded-pill">
+      <div class="head mb-3 display-6">SIGNUP</div>
+      <form [formGroup]="regForm" (ngSubmit)="onSubmit($event)">
+
+        <!-- Firstname -->
+        <div>
+          <label for="firstname" class="form-label">First Name </label>
+          <input type="text" 
+            id="firstname" 
+              class="form-control" 
+              formControlName="firstname"
+            aria-label="firstname"
+            >
+            
+
+          <div class="text-danger" *ngIf="regForm.controls['firstname'].touched && regForm.controls['firstname'].invalid">
+            First name is required.
+          </div>
+        </div>
+      
+        <!-- Lastname -->
+        <div>
+          <label for="lastname">Last Name </label>
+          <input 
+            type="text" 
+            id="lastname" 
+            class="form-control" 
+            formControlName="lastname"
+            aria-label="lastname"
+            >
+
+            <div class="text-danger" *ngIf="regForm.controls['lastname'].touched && regForm.controls['lastname'].invalid">
+              Last name is required.
+            </div>
+        </div>
+      
+        <!-- Email -->
+        <div>
+          <label for="email">Email </label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            formControlName="email"
+            aria-label="email"
+            >
+                
+            <div class="text-danger" *ngIf="regForm.controls['email'].touched && regForm.controls['email'].invalid">
+              <span *ngIf="regForm.controls['email'].errors?.['required']">email is required.</span>
+              <span *ngIf="regForm.controls['email'].errors?.['email']">Please enter a valid email address.</span>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password">Password </label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            formControlName="password"
+            aria-label="password"
+            >
+                
+            <div class="text-danger" *ngIf="regForm.controls['password'].touched && regForm.controls['password'].invalid">
+              <span *ngIf="regForm.controls['password'].errors?.['required']">password is required.</span>
+              <span *ngIf="regForm.controls['password'].errors?.['password']">Please enter a valid password address.</span>
+            </div>
+        </div>
+
+        <!-- General error message -->
+        <div class="error text-danger">{{errorMsg}}</div>
+      
+        <div class="mt-4">
+          <button type="submit" class="btn btn-light px-5 py-2">Submit</button>
+        </div>
+      
+        <div>
+          Didn't have an account? <span><a href="" (click)="navLog($event)">Login</a></span>
+        </div>
+      
+      </form>
+  </div>
+  <!-- <div class="col-md-5 text-success display-1 text-center d-flex" style="font-weight: 400; justify-content: center; align-items: center;"></div> -->
+</div>

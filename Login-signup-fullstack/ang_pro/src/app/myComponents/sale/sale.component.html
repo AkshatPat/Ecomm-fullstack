@@ -1,0 +1,206 @@
+<div class="bg-main">
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand fs-2 fw-bold " href="#"><i class="fa fa-shopping-cart fs-2"
+              style="color: #f54242;"></i><span class="text-white">Shopwise</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0  text-center ">
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-semibold text-uppercase  me-1 text-danger" href="#"
+                  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  home
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+    
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle redHover fw-semibold text-uppercase text-white  me-1" href="#"
+                  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  pages
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+    
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-white  me-1" href="#" id="navbarDropdown"
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  product
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+    
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown fw-semibold text-uppercase text-white  me-1">
+                <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-white  me-1" href="#" id="navbarDropdown"
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  blog
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+    
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-white  me-1" href="#" id="navbarDropdown"
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  shop
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+    
+                  <li><a class="dropdown-item" href="#">Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semibold text-uppercase text-white  me-1" href="#">Contact us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link fw-semibold text-uppercase text-white me-1" (click)="logout($event)" href="#">Logout</a>
+                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle cart fw-semibold text-uppercase text-white  me-1" href="#"
+                  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-shopping-cart fs-5" style="color: #ffffff;"></i>
+                  <span class="position-absolute  translate-middle badge rounded-pill bg-danger">
+                   {{cartProducts.length}}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </a>
+                <div class="dropdown-menu" style="margin-left: -30vh;">
+                  <div class="CartContainer">
+                    <div class="row">
+                      <div class="col-6">
+                        Your Cart
+                      </div>
+                      <div class="col-6 text-end text-danger" style="cursor: pointer;">
+                        Remove All
+                      </div>
+                    </div>
+                    <div class="row pt-1" *ngFor="let cart of cartProducts"> 
+                      <div class="col-4">
+                        <img class="img-fluid" style="height: 10vh;" [src]="cart.productImg" class="card-img-top">
+                      </div>
+                      <div class="col-3">
+                        {{cart.productName}}
+                      </div>
+                      <!-- <div [(ngModel)]="cart.quantity" (change)="updateQuantity(['product'])"></div> -->
+                      <div class="col-2 text-end">
+                       {{ cart.productPrice}}
+                      </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-3">
+    
+                      </div>
+                      <div class="col-9">
+                        <hr>
+                      </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-2">
+                         
+                      </div>
+                      <div class="col-2">
+                         
+                      </div>
+                      <div class="col-4">
+                        <div class="Subtotal">subTotal</div>
+                        <div> <small> {{cartProducts.length}} items</small></div>
+                      </div>
+                      <div class="col-4 text-end">
+                        <strong>${{subTotal}}</strong>
+                      </div>
+                    </div>
+                     
+                  </div>
+                </div> 
+              </li> 
+            </ul> 
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="CartContainer text-center">
+      <div class="row">
+        <div class="col-5 text-start py-4 display-5">
+          Cart Items
+        </div>
+        
+      </div>
+      <div class="row pt-1" *ngFor="let cart of cartProducts"> 
+        <div class="col-2">
+          <img class="img-fluid" style="height: 200px; width: 250px; border-radius: 30px;" src={{baseUrl}}{{cart.productImg}} class="card-img-top">
+        </div>
+        <div class="col-4 offset-1">
+          {{cart.productName}}
+        </div>
+        <div class="col-1">
+          {{cart.quantity}}
+        </div>
+        <div class="col-1 text-end">
+         {{ cart.productPrice}}
+        </div>
+        <div class="col-3 text-end">
+         <button class="btn btn-md btn-danger" (click)="removeItem(cart)">Remove</button>
+        </div>
+      </div>
+     
+      <div class="row">
+        
+        <div class="col-12">
+          <hr style="height: 2px;">
+           <!-- <div >-----------------------------------------------------------</div> -->
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col-2">
+           
+        </div>
+        <div class="col-2">
+           
+        </div>
+        <div class="col-4">
+          <div class="Subtotal">subTotal</div>
+          <div> <small> {{cartProducts.length}} items</small></div>
+        </div>
+        <div class="col-4 text-end">
+          <strong>${{subTotal}}</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-end">
+          <!-- <button class="btn btn-sm btn-success">Checkout</button> -->
+        </div>
+      </div> 
+      <div class="row">
+        <div class="col-12 text-center">
+            <!-- <button class="btn btn-lg btn-success" (click)="makeSale()">Make Sale</button> -->
+            <button class="btn btn-md mt-3 btn-success">Make Sale</button>
+        </div>
+      </div>
+    </div>
+</div>
